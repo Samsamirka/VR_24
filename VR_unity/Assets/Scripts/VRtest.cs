@@ -5,24 +5,34 @@ using UnityEngine.UI;
 
 public class VRtest : MonoBehaviour
 {
-    public GameObject Cube;
+    static public int a;
     public int x = 0;
     public Text Mytxt;
-    // Start is called before the first frame update
+    public int z;
+    public int y;
+    public int c;
+
     void Start()
     {
         Debug.Log("First programme!");
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         x++;
         Mytxt.text = x.ToString();
         Debug.Log(x);
-        if (x >= 100)
-        {
-            Cube.SetActive(false);
-        }
+        if (x >= 100) this.gameObject.SetActive(false);
+    }
+
+
+    public void ClickBut()
+    {
+        z = Random.Range(0, 255);
+        y = Random.Range(0, 255);
+        c = Random.Range(0, 255);
+        this.GetComponent<Renderer>().material.color = new Color32((byte)z, (byte)y, (byte)c, 1);
     }
 }
+
+
