@@ -8,9 +8,11 @@ public class VRtest : MonoBehaviour
     static public int a;
     public int x = 0;
     public Text Mytxt;
-    public int z;
-    public int y;
-    public int c;
+    static public int z;
+    static public int y;
+    static public int c;
+
+    static public GameObject first;
 
     void Start()
     {
@@ -22,11 +24,16 @@ public class VRtest : MonoBehaviour
         x++;
         Mytxt.text = x.ToString();
         Debug.Log(x);
-        if (x >= 100) this.gameObject.SetActive(false);
+        // if (x >= 100) this.gameObject.SetActive(false);
+        
     }
 
+    public void OnCollisionEnter(Collision collision)
+    {
 
-    public void ClickBut()
+    }
+
+    public void OnTriggerStay(Collider other)
     {
         z = Random.Range(0, 255);
         y = Random.Range(0, 255);
